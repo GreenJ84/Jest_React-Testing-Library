@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event/';
 import SummaryForm from '../SummaryForm';
@@ -28,18 +27,20 @@ test('Checkbox enables/disables button', async () => {
     expect(button).toBeDisabled();
 });
 
-test('popover responds to hove', async () => {
+test('popover responds to hover', async () => {
     const user = userEvent.setup();
+
+    render(<SummaryForm />)
 
     // popover starts out hidden
     const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);
     expect(nullPopover).not.toBeInTheDocument();
 
     //popover appears on mouseover terms
-    const tc = screen.getByText(/terms and conditions/i);
+    const tc = await screen.findByText(/terms and conditions/i);
     await user.hover(tc);
 
-    const popover = screen.getByText(/no ice cream will actually be delivered/i);
+    const popover = await screen.findByText(/no ice cream will actually be delivered/i);
     expect(popover).toBeInTheDocument();
 
     //popover disappears on mouse out
