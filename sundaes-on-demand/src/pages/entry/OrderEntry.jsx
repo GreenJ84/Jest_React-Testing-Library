@@ -3,6 +3,8 @@ import Options from "./Options";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import { formatCurrency } from "../../utilities";
 
+import './OrderEntry.css';
+
 export default function OrderEntry({ setOrderPhase }) {
   const { totals } = useOrderDetails();
 
@@ -14,8 +16,8 @@ export default function OrderEntry({ setOrderPhase }) {
       <h1>Design Your Sundae!</h1>
       <Options optionType="scoops" />
       <Options optionType="toppings" />
-      <h2>Grand total: {formatCurrency(totals.scoops + totals.toppings)}</h2>
-      <Button disabled={orderDisabled} onClick={() => setOrderPhase("review")}>
+      <h2 className='total'>Grand total: {formatCurrency(totals.scoops + totals.toppings)}</h2>
+      <Button className='order' disabled={orderDisabled} onClick={() => setOrderPhase("review")}>
         Order Sundae!
       </Button>
     </div>
