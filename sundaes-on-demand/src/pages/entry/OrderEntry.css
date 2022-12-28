@@ -1,0 +1,21 @@
+div>h1{
+    margin: 4vw 0 4vw;
+    font-size: 6vw;
+    text-align: center;
+    text-shadow: 3px 3px rgb(72, 72, 72);
+    border-bottom: 1px solid black;
+    box-shadow: 1px 1px black;
+}
+
+.total{
+    margin: 4vw 0 1vw;
+    font-size: 3.5vw;
+    text-align: left;
+    text-shadow: 3px 3px rgb(72, 72, 72);
+}
+
+.order{
+    width: 30%;
+    height: 3rem;
+    box-shadow: 2px 2px blue;
+}
