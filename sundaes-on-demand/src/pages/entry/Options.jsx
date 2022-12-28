@@ -8,6 +8,8 @@ import { pricePerItem } from "../../constants";
 import { formatCurrency } from "../../utilities";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 
+import './Options.css'
+
 export default function Options({ optionType }) {
   const [items, setItems] = useState([]);
   const [error, setError] = useState(false);
@@ -39,9 +41,9 @@ export default function Options({ optionType }) {
 
   return (
     <>
-      <h2>{title}</h2>
-      <p>{formatCurrency(pricePerItem[optionType])} each</p>
-      <p>
+      <h2 className='total'>{title}</h2>
+      <p className='optionDetail'>{formatCurrency(pricePerItem[optionType])} each</p>
+      <p className='optionDetail'>
         {title} total: {formatCurrency(totals[optionType])}
       </p>
       <Row>{optionItems}</Row>
